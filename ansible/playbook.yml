@@ -20,6 +20,7 @@
     - { role: nginx-application-symfony2, when: application == 'symfony2' }
     - { role: nginx-application-symfony3, when: application == 'symfony3' }
     - { role: nginx-application-wordpress4, when: application == 'wordpress4' }
+    - { role: nginx-application-sys, when: application == 'sys' }
     - nginx
     - { role: nodejs, when: role.nodejs }
     - { role: php55-original, when: phpversion == '5.5-original' }
