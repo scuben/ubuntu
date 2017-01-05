@@ -3,10 +3,10 @@
   apt_key: url=https://deb.nodesource.com/gpgkey/nodesource.gpg.key state=present
 
 - name: add apt repository
-  apt_repository: repo='deb https://deb.nodesource.com/node_0.12 trusty main' state=present
+  apt_repository: repo='deb https://deb.nodesource.com/node_5.x trusty main' state=present
 
 - name: add apt src repository
-  apt_repository: repo='deb-src https://deb.nodesource.com/node_0.12 trusty main' state=present
+  apt_repository: repo='deb-src https://deb.nodesource.com/node_5.x trusty main' state=present
 
 - name: install
   apt: name={{ item }} state=present
@@ -15,4 +15,4 @@
 
 - name: npm install
   npm: name={{ item }} global=yes state=present
-  with_items: nodejs.npm
+  with_items: "{{ nodejs.npm }}"

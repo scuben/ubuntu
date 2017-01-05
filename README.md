@@ -4,7 +4,7 @@
 
  * ubuntu 14.04
  * nginx 1.8
- * php (5.5, 5.5-original, 5.6, 7.0, hhvm)
+ * php (5.5, 5.5-original, 5.6, 7.0, 7.1, hhvm)
 
 ## Switchable features
 
@@ -65,11 +65,14 @@ for advanced configuration see the [default configuration][2]
 #### supported application
 
  * bolt2
+ * bolt3
  * contao3
  * drupal7
  * drupal8
  * lavarel5
  * magento1
+ * shopware
+ * slim3
  * symfony1
  * symfony2
  * symfony3
@@ -89,6 +92,7 @@ If you d'like to change the php version, you need to run `vagrant destroy and va
  * 5.5
  * 5.6
  * 7.0
+ * 7.1
  * hhvm
 
 ### .vagrant-default-user.yml (within your home directory)
