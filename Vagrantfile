@@ -82,12 +82,12 @@ Vagrant.configure(2) do |config|
     # --------------------------------------------------------------------------
     config.vm.network 'private_network', ip: setupConfig['network']['ip']
 
-    setupConfig['network']['forwarded_ports'].each do |id, options|
-        if options['host'] == 'ephemeral'
-            options['host'] = Random.rand(49152..65535)
-        end
-        config.vm.network :forwarded_port, id: id, guest: options['guest'], host: options['host'], auto_correct: true
-    end
+#     setupConfig['network']['forwarded_ports'].each do |id, options|
+#         if options['host'] == 'ephemeral'
+#             options['host'] = Random.rand(49152..65535)
+#         end
+#         config.vm.network :forwarded_port, id: id, guest: options['guest'], host: options['host'], auto_correct: true
+#     end
 
     # SSH stuff
     # --------------------------------------------------------------------------
@@ -192,6 +192,15 @@ Vagrant.configure(2) do |config|
         v.vmx['memsize'] = setupConfig['memory']
         v.vmx['numvcpus'] = cpus
         v.vmx['vhv.enable'] = 'TRUE'
+    end
+
+    # for vmware workstation (windows, linux)
+    config.vm.provider 'vmware_fusion' do |v|
+        v.vmx['displayname'] = setupConfig['hostname']
+        v.vmx['memsize'] = setupConfig['memory']
+        v.vmx['numvcpus'] = cpus
+        v.vmx['vhv.enable'] = 'TRUE'
+        v.gui = true
     end
 
     # Provisioning
